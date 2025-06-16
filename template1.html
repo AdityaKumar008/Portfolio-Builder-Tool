@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="template1.css" />
+</head>
+
+<body>
+
+    <!-- Download Button -->
+    <button id="downloadBtn" title="Download Portfolio" style="
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+">
+        Download
+    </button>
+
+
+
+    <!-- Header -->
+    <header>
+        <div class="top-section">
+            <img src="Profile Logo.jpg" alt="Profile Picture" class="profile-pic" id="profilePicOutput" />
+            <div class="intro">
+                <h1 id="nameOutput">Your Name</h1>
+                <p class="tagline" id="taglineOutput"><em>Your personal tagline goes here.</em></p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Summary -->
+    <section class="summary">
+        <h2>Professional Summary</h2>
+        <p id="summaryOutput">A brief overview of your professional background, goals, and strengths.</p>
+    </section>
+
+    <!-- Skills -->
+    <section class="skills">
+        <h2>Skills</h2>
+        <ul id="skillsOutput">
+            <li>Skill 1</li>
+            <li>Skill 2</li>
+            <li>Skill 3</li>
+        </ul>
+    </section>
+
+    <!-- Education -->
+    <section class="education">
+        <h2>Education</h2>
+        <p id="educationOutput"><strong>College Name</strong><br>Degree<br>Start Year - End Year</p>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects">
+        <h2>Projects</h2>
+        <div id="projectsOutput">
+            <div class="project">
+                <h3>Project 1 Title</h3>
+                <p>Project 1 Description</p>
+            </div>
+            <div class="project">
+                <h3>Project 2 Title</h3>
+                <p>Project 2 Description</p>
+            </div>
+            <div class="project">
+                <h3>Project 3 Title</h3>
+                <p>Project 3 Description</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> <span id="emailOutput">your@email.com</span></p>
+        <p><strong>Phone:</strong> <span id="phoneOutput">+91 34567890</span></p>
+        <p><strong>LinkedIn:</strong> <a id="linkedinOutput" href="#" target="_blank">linkedin.com/in/yourprofile</a>
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Thank you for visiting my portfolio!</p>
+        <p>&copy; 2025 <span id="footerName">Your Name</span></p>
+    </footer>
+
+    <!-- JavaScript for loading data -->
+    <script>
+        const isPreview = new URLSearchParams(window.location.search).get("preview") === "true";
+
+        if (!isPreview) {
+            const data = JSON.parse(localStorage.getItem("portfolioData"));
+
+            if (data) {
+                // Text content updates
+                document.getElementById("nameOutput").textContent = data.fullName;
+                document.getElementById("taglineOutput").textContent = data.tagline;
+                document.getElementById("summaryOutput").textContent = data.summary;
+                document.getElementById("emailOutput").textContent = data.email;
+                document.getElementById("phoneOutput").textContent = data.phone;
+                document.getElementById("linkedinOutput").textContent = data.linkedin;
+                document.getElementById("linkedinOutput").href = data.linkedin;
+                document.getElementById("educationOutput").innerHTML =
+                    `<strong>${data.college}</strong><br>${data.degree}<br>${data.startYear} - ${data.endYear}`;
+                document.getElementById("footerName").textContent = data.fullName;
+
+                // Skills
+                const skillsArray = data.skills.split(",").map(skill => skill.trim());
+                const skillsList = document.getElementById("skillsOutput");
+                skillsList.innerHTML = "";
+                skillsArray.forEach(skill => {
+                    const li = document.createElement("li");
+                    li.textContent = skill;
+                    skillsList.appendChild(li);
+                });
+
+                // Projects
+                const projectsOutput = document.getElementById("projectsOutput");
+                projectsOutput.innerHTML = "";
+                data.projects.forEach(project => {
+                    if (project.title.trim() !== "" && project.desc.trim() !== "") {
+                        const projectDiv = document.createElement("div");
+                        projectDiv.classList.add("project");
+
+                        const h3 = document.createElement("h3");
+                        h3.textContent = project.title;
+                        const p = document.createElement("p");
+                        p.textContent = project.desc;
+
+                        projectDiv.appendChild(h3);
+                        projectDiv.appendChild(p);
+                        projectsOutput.appendChild(projectDiv);
+                    }
+                });
+
+                // Profile Picture logic
+                if (data.profilePic && data.profilePic.startsWith("data:image")) {
+                    document.getElementById("profilePicOutput").src = data.profilePic;
+                }
+
+            }
+        }
+
+        // Download Portfolio as PDF
+        document.getElementById("downloadBtn").addEventListener("click", () => {
+            const element = document.body;
+            const downloadBtn = document.getElementById("downloadBtn");
+
+            // Hide the download button before generating PDF
+            downloadBtn.style.display = "none";
+
+            const opt = {
+                margin: 0,
+                filename: 'My_Portfolio.pdf',
+                image: { type: 'jpeg', quality: 1 },
+                html2canvas: { scale: 2 },
+                jsPDF: {
+                    unit: 'px',
+                    format: [1800, 1500], // Keep this resolution if it fits your design
+                    orientation: 'landscape'
+                }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                // Show the download button again after saving
+                downloadBtn.style.display = "block";
+            });
+        });
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+
+</body>
+
+</html>

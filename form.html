@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Form</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    label.required::after {
+      content: " *";
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo" onclick="window.location.href='index.html'">Portfolio Builder</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Heading -->
+  <h2 class="hero-heading">Fill this form</h2>
+
+  <!-- Main -->
+  <main>
+    <form id="portfolioForm" class="form-container">
+
+      <!-- 1. Personal Information -->
+      <div class="form-section">
+        <h3>1. Personal Information</h3>
+        <label for="fullName" class="required">Full Name</label>
+        <input type="text" id="fullName" required />
+
+        <label for="email" class="required">Email Address</label>
+        <input type="email" id="email" required />
+
+        <label for="phone" class="required">Phone Number</label>
+        <input type="tel" id="phone" pattern="^\d{10}$" title="Enter a 10-digit phone number" required />
+
+
+        <label for="linkedin">LinkedIn Profile</label>
+        <input type="url" id="linkedin" />
+
+        <label for="profilePic">Upload Profile Picture</label>
+        <input type="file" id="profilePic" accept="image/*" />
+      </div>
+
+      <!-- 2. Professional Summary -->
+      <div class="form-section">
+        <h3>2. Professional Summary</h3>
+        <label for="summary" class="required">Summary</label>
+        <textarea id="summary" rows="4" placeholder="Write a short 3–4 sentence summary about yourself"
+          required></textarea>
+      </div>
+
+      <!-- 3. Skills -->
+      <div class="form-section">
+        <h3>3. Skills</h3>
+        <label for="skills" class="required">Skills</label>
+        <input type="text" id="skills" placeholder="E.g. HTML, CSS, JavaScript" required />
+      </div>
+
+      <!-- 4. Education -->
+      <div class="form-section">
+        <h3>4. Education</h3>
+        <label for="college" class="required">College Name</label>
+        <input type="text" id="college" required />
+
+        <label for="degree" class="required">Degree</label>
+        <input type="text" id="degree" required />
+
+        <label for="startYear" class="required">Start Year</label>
+        <input type="text" id="startYear" pattern="^\d{4}$" title="Enter a 4-digit year (e.g. 2025)" required />
+        <label for="endYear" class="required">End Year</label>
+        <input type="text" id="endYear" pattern="^\d{4}$" title="Enter a 4-digit year (e.g. 2029)" required />
+      </div>
+
+      <!-- 5. Projects -->
+      <div class="form-section">
+        <h3>5. Projects</h3>
+
+        <label for="projectTitle1" class="required">Project 1 Title</label>
+        <input type="text" id="projectTitle1" required />
+
+        <label for="projectDesc1" class="required">Project 1 Description</label>
+        <textarea id="projectDesc1" rows="3" required></textarea>
+
+        <label for="projectTitle2">Project 2 Title</label>
+        <input type="text" id="projectTitle2" />
+
+        <label for="projectDesc2">Project 2 Description</label>
+        <textarea id="projectDesc2" rows="3"></textarea>
+
+        <label for="projectTitle3">Project 3 Title</label>
+        <input type="text" id="projectTitle3" />
+
+        <label for="projectDesc3">Project 3 Description</label>
+        <textarea id="projectDesc3" rows="3"></textarea>
+      </div>
+
+      <!-- 6. Tagline -->
+      <div class="form-section">
+        <h3>6. Your Tagline</h3>
+        <label for="tagline" class="required">Tagline</label>
+        <input type="text" id="tagline" placeholder="Write a catchy one-liner about yourself" required />
+      </div>
+
+      <!-- Submit Button -->
+      <div class="submit-container" style="text-align: center; margin-bottom: 50px;">
+        <button type="submit" class="proceed-btn" id="submitBtn">Generate Portfolio</button>
+      </div>
+
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Portfolio Builder. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

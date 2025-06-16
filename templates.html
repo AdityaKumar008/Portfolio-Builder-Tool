@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select Template</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo" onclick="window.location.href='index.html'">Portfolio Builder</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="hero">
+      <h1>Select Your Template</h1>
+      <div class="template-grid">
+        <label class="template-card">
+          <input type="radio" name="template" class="template-radio" data-template-id="template1" />
+          <div class="preview-content">
+            <img src="Images/Template1.png" alt="Template 1 Preview" class="template-screenshot" />
+            <button onclick="window.open('template1.html?preview=true', '_blank')">Preview</button>
+
+          </div>
+        </label>
+
+        <label class="template-card">
+          <input type="radio" name="template" class="template-radio" data-template-id="template2" />
+          <div class="preview-content">
+            <img src="Images/Template2.png" alt="Template 2 Preview" class="template-screenshot" />
+            <button onclick="window.open('template2.html?preview=true', '_blank')">Preview</button>
+
+          </div>
+        </label>
+
+        <label class="template-card">
+          <input type="radio" name="template" class="template-radio" data-template-id="template3" />
+          <div class="preview-content">
+            <img src="Images/Template3.png" alt="Template 3 Preview" class="template-screenshot" />
+            <button onclick="window.open('template3.html?preview=true', '_blank')">Preview</button>
+
+          </div>
+        </label>
+
+        <label class="template-card">
+          <input type="radio" name="template" class="template-radio" data-template-id="template4" />
+          <div class="preview-content">
+            <img src="Images/Template4.png" alt="Template 4 Preview" class="template-screenshot" />
+            <button onclick="window.open('template4.html?preview=true', '_blank')">Preview</button>
+
+          </div>
+        </label>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Proceed Button -->
+  <div id="proceed-container">
+    <button id="proceedBtn">Proceed</button>
+  </div>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Portfolio Builder. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+  </footer>
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>

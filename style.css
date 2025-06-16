@@ -1,0 +1,534 @@
+/* Root Variables */
+:root {
+  --bg-color: #f8fbff;
+  --header-bg: #e0f2fe;
+  --text-color: #000000;
+  --accent-color: #3b82f6;
+  --accent-hover: #2563eb;
+  --hero-box: #dbeafe;
+  --tagline-color: #1e40af;
+  --paragraph-color: #334155;
+  --nav-active-bg: var(--accent-color);
+  --nav-active-text: #ffffff;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--header-bg);
+  padding: 20px 40px;
+  height: 80px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+  padding-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  text-decoration: underline;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding-left: 10px;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav a.active {
+  background-color: var(--nav-active-bg);
+  color: var(--nav-active-text);
+}
+
+/* Main */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.hero {
+  text-align: center;
+  max-width: 960px;
+  width: 100%;
+}
+
+.hero h1 {
+  background-color: var(--hero-box);
+  color: black;
+  padding: 20px 40px;
+  border-radius: 12px;
+  font-size: 2.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  display: inline-block;
+  animation: fadeIn 1s ease;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 10px auto;
+  color: var(--tagline-color);
+}
+
+.hero p {
+  margin: 10px auto;
+  font-size: 1rem;
+  color: var(--paragraph-color);
+}
+
+/* Button */
+.hero button {
+  margin-top: 30px;
+  padding: 14px 32px;
+  font-size: 1rem;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.hero button:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-3px);
+}
+
+/* Contact Page Layout */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 15px;
+}
+
+.contact-info,
+.contact-form {
+  flex: 1;
+  min-width: 250px;
+  max-width: 360px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-info {
+  text-align: left;
+}
+
+.contact-info h3,
+.contact-form h3 {
+  margin-bottom: 10px;
+  color: var(--tagline-color);
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: var(--paragraph-color);
+}
+
+.contact-info a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Feedback Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-form button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.contact-form button:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-3px);
+
+}
+
+/* Footer */
+footer {
+  background-color: var(--header-bg);
+  color: black;
+  text-align: center;
+  padding: 16px 10px;
+  font-size: 0.85rem;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 4px 0;
+}
+
+footer a {
+  color: black;
+  text-decoration: underline;
+}
+
+footer a:visited {
+  color: black;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    height: auto;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    padding-left: 0;
+    margin-top: 10px;
+  }
+
+  main {
+    padding: 30px 15px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    padding: 16px 24px;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  .contact-form,
+  .contact-info {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.7rem;
+    padding: 12px 18px;
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.9rem;
+    padding: 10px 14px;
+  }
+
+  .contact-form button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  footer {
+    font-size: 0.8rem;
+    padding: 14px 8px;
+  }
+
+  nav ul {
+    gap: 8px;
+  }
+}
+
+
+
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.template-card {
+  position: relative;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 30px 10px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background-color: white;
+}
+
+.template-card input[type="radio"] {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.template-card .preview-content {
+  margin-top: 50px;
+}
+
+.template-card button {
+  padding: 10px 18px;
+  border-radius: 20px;
+  background-color: var(--accent-color);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.template-card button:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.template-card.selected {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 12px var(--accent-color);
+}
+
+/* ✅ Proceed button container – updated position & style */
+#proceed-container {
+  display: none;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding: 20px 0;
+}
+
+/* ✅ Proceed button – stays the same */
+#proceedBtn {
+  padding: 14px 36px;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: none;
+  background-color: var(--accent-color);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: 0.3s ease;
+  color: white;
+}
+
+#proceedBtn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-3px);
+}
+
+/* ✅ Preview button – already made smaller */
+.preview-content button {
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  border-radius: 16px;
+}
+
+
+
+/* ========== Form Page ========== */
+
+/* Container for the whole form */
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Styling each section (like Personal Info, Education, etc.) */
+.form-section {
+  background-color: var(--hero-box);
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Section headings like 1. Personal Information */
+.form-section h3 {
+  margin-bottom: 16px;
+  color: var(--tagline-color);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* Labels above inputs */
+.form-section label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Input fields and textareas */
+.form-section input[type="text"],
+.form-section input[type="email"],
+.form-section input[type="tel"],
+.form-section input[type="url"],
+.form-section input[type="file"],
+.form-section textarea {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  resize: vertical;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* Heading "Fill this form" */
+.hero-heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 40px auto 30px;
+  color: var(--tagline-color);
+  background-color: var(--hero-box);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 800px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Submit button container */
+.submit-container {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 70px;
+  /* Adds spacing before footer */
+}
+
+/* Submit button style */
+.proceed-btn {
+  background-color: #3b82f6;
+  color: white;
+  padding: 14px 32px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.proceed-btn:hover {
+  background-color: #2563eb;
+  transform: translateY(-3px);
+
+}
+
+
+
+.template-screenshot {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
