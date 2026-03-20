@@ -39,4 +39,3 @@ Portfolio Builder Tool is a web-based application that allows users to create a 
 ## Author
 **Aditya Kumar**  
 LinkedIn: www.linkedin.com/in/aditya-kumar-b7920b328  
-GitHub: https://github.com/AdityaKumar008
